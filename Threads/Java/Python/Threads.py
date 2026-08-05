@@ -34,6 +34,26 @@ def quick_sort(lista):
         return quick_sort(left) + middle + quick_sort(right)
 
 
+def pente(lista):
+    n = len(lista)
+    distancia = n
+    fator = 1.3
+    houve_troca = True
+    
+    while distancia > 1 or houve_troca:
+        distancia = int(distancia / fator)
+        if distancia < 1:
+            distancia = 1
+        houve_troca = False
+    
+        for i in range(n - distancia):
+            if lista[i] > lista[i + distancia]:
+                lista[i], lista[i + distancia] = lista[i + distancia], lista[i]
+                houve_troca = True
+    
+    print('Pente finalizado...')
+
+
 lista1 = []
 lista2 = []
 
@@ -44,6 +64,9 @@ t1.start()
 t2.start()
 
 t1.join
+t2.join
+
+
 t3 = threading.thread(target=quick_sort, args=(lista1,))
 t4 = threading.Thread(target=bolha, args=(lista2))
 t3.start()
