@@ -1,0 +1,12 @@
+Objetivo
+
+Criar um programa em Python que utilize 2 threads para realizar a limpeza de uma lista contendo 5.000 nomes de usuários armazenados em um arquivo .txt.
+
+A lista deve ser dividida em 2 partes iguais. Cada thread recebe uma parte da lista e realiza o processamento de forma independente.
+
+As regras de limpeza são:
+
+Remover espaços em branco no início e no final do texto.
+Converter o texto para letras maiúsculas.
+
+Ao final, a thread principal junta os resultados das duas threads.
