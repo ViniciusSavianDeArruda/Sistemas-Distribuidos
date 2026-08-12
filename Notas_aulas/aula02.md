@@ -1,31 +1,43 @@
-## Aula 2
+# Aula 2 — Sistemas Distribuídos
 
-# Para que usar Sistemas distribuidos ?
- - Para compartilhar recursos seja de alta complexidade ou de baixa complexidade
+## Para que usar Sistemas Distribuídos?
 
-# Como Sistemas Distribuidos opera ?
- - Comunicacao de dados = Bytes
+- Para compartilhar recursos, sejam eles de alta ou de baixa complexidade.
 
-# Therads 
-**O que sao**?
-- Mini processos dentro de processos para realizar tarefas ou rotinas de forma concomitante 
-- Existe so em Sistemas Distribuidos 
+## Como Sistemas Distribuídos operam?
 
-**para que servem**?
-- circundam rotinas ou tarefas para essas possam executar concomitantemente
+- Através de comunicação de dados (troca de **bytes**).
 
-**Em quais tarefas as threads são mais adequadas**?
-    - mineração
-    - tratamento de dados
-    - análise de dados
-    - rotinas que não possuam seção crítica 
+---
 
-**ipos de threads**
-    - **Sem memória compartilhada:** não possuem seção crítica e são mais simples de gerenciar.
-    - **Com memória compartilhada:** possuem seção crítica, necessitam de sincronização e são mais complexas, pois podem ocorrer conflitos no acesso aos dados.
+## Threads
+
+### O que são?
+
+- Mini processos dentro de processos, criados para realizar tarefas ou rotinas de forma **concomitante**.
+- Existem apenas em Sistemas Distribuídos.
+
+### Para que servem?
+
+- Circundam rotinas ou tarefas para que essas possam ser executadas de forma concomitante.
+
+### Em quais tarefas as threads são mais adequadas?
+
+- Mineração
+- Tratamento de dados
+- Análise de dados
+- Rotinas que não possuam seção crítica
+
+### Tipos de threads
+
+- **Sem memória compartilhada:** não possuem seção crítica e são mais simples de gerenciar.
+- **Com memória compartilhada:** possuem seção crítica, necessitam de sincronização e são mais complexas, pois podem ocorrer conflitos no acesso aos dados.
+
+---
 
 ## Processo
+
 Um processo pode criar threads de diferentes formas:
 
-- **Thread (classe):** geralmente associada a exemplos sem memória compartilhada.
+- **Thread (classe):** geralmente associada a exemplos **sem** memória compartilhada.
 - **Runnable (interface):** geralmente utilizada quando há memória compartilhada entre as threads.
