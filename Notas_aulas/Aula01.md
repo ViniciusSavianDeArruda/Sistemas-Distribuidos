@@ -1,222 +1,126 @@
-# Sistemas Distribuídos
+# Aula 1 — Sistemas Distribuídos
 
-## Aula 1
-
-### Professor
-- Alexandre Zamberlan
-- E-mail: Alexz@ufn.edu.br
-
-### Organização dos projetos
-- Utilizar a seguinte estrutura nas atividades em código:
-  - Controller
-  - Model
-  - Service
-  - Communication
+> **Professor:** Alexandre Zamberlan — `Alexz@ufn.edu.br`
 
 ---
 
-## Processo de Avaliação
+## Informações da disciplina
 
-- 20% da nota: participação efetiva.
-- 20% da nota: notas de aula (GitHub pessoal).
-  - Criar um arquivo chamado `notas_aula.md`.
-- 60% da nota: provas e trabalhos práticos.
+**Estrutura dos projetos em código:**
+- `Controller`
+- `Model`
+- `Service`
+- `Communication`
 
----
-
-## Conteúdo da Aula
-
-### Conceitos básicos de Sistemas Distribuídos (SD)
-
-- Comunicação
-- Arquitetura
-- Processamento concomitante × processamento paralelo
-- Cluster × Grid
+**Avaliação:**
+- 20% — Participação
+- 20% — Notas de aula no GitHub (`notas_aula.md`)
+- 60% — Provas e trabalhos práticos
 
 ---
 
-## Comunicação
+## 1. O que são Sistemas Distribuídos?
 
-- Tipos de comunicação:
-  - Broadcast
-  - Multicast
-  - Unicast
+São sistemas em que várias máquinas trabalham juntas trocando informações pela rede.
+Para funcionar bem, precisamos entender **4 pilares**:
 
-- Comunicação bloqueante:
-  - Escrever (**Writer** ou **Sender**)
-  - Ler (**Reader** ou **Receiver**)
-
-- Modelo TCP/IP
-  - Aplicação
-  - Transporte
-  - Interface
-  - Rede
-
-- Máscara ou classe de rede e domínio.
-- Socket.
-- Porta lógica.
+1. Comunicação
+2. Arquitetura
+3. Processamento (concorrente × paralelo)
+4. Cluster × Grid
 
 ---
 
-## Arquitetura
+## 2. Comunicação
 
-- Cliente-Servidor
-- Ponto a Ponto (Peer-to-Peer)
+### Tipos
+| Tipo | Para quem envia |
+|------|-----------------|
+| **Unicast** | Um destinatário |
+| **Multicast** | Um grupo |
+| **Broadcast** | Todos |
+
+### Comunicação bloqueante
+- **Writer / Sender** → escreve/envia
+- **Reader / Receiver** → lê/recebe
+
+### Conceitos de rede
+- **Modelo TCP/IP:** Aplicação → Transporte → Interface → Rede
+- **Socket:** ponto de conexão entre duas máquinas
+- **Porta lógica:** identifica o serviço dentro da máquina
+- **Máscara/classe de rede:** define o domínio
 
 ---
 
-## Threads
+## 3. Arquitetura
 
-### Conceitos
+- **Cliente-Servidor:** um serve, outros consomem.
+- **Ponto a Ponto (P2P):** todos são iguais, podem servir e consumir.
 
-- Thread é um subprocesso (ou mini processo) pertencente a um processo.
-- É criada em tempo de programação/execução.
-- Sua finalidade é garantir processamento concomitante/paralelo.
+---
 
-### Estados da Thread
+## 4. Threads
 
-- Execução
-- Finalizado/Pronto
-- Espera/Aguardando
-- Parado
-- Dormindo
-- Cancelado
+### O que é?
+Uma **thread** é um mini processo dentro de um processo, usado para executar tarefas **ao mesmo tempo**.
 
-### Sincronismo
-
-Há comandos que garantem o **SINCRONISMO** do processamento.
+### Estados de uma thread
+`Execução` · `Pronto/Finalizado` · `Espera` · `Parado` · `Dormindo` · `Cancelado`
 
 ### Compartilhamento de memória
 
-#### Com compartilhamento
+| | Com compartilhamento | Sem compartilhamento |
+|---|---|---|
+| Memória | Compartilhada | Isolada |
+| Sincronismo | Necessário (responsabilidade do programador) | Não precisa |
+| Complexidade | Alta | Baixa |
+| Em Java | Interface `Runnable` | Classe `Thread` |
 
-- O processamento é bloqueante.
-- O **PROGRAMADOR** é responsável por garantir o sincronismo.
+### Sincronismo (quando há memória compartilhada)
+Ferramentas: **Monitor** e **Semáforo**.
 
-#### Sem compartilhamento
-
-- Não compartilha memória/recurso.
-
-### Threads em Java
-
-- A JVM permite processamento concomitante.
-- Com compartilhamento de memória:
-  - Interface `Runnable`
-- Sem compartilhamento de memória:
-  - Classe `Thread`
+### Por que usar threads?
+- Executar tarefas **concomitantemente**.
+- Em Sistemas Distribuídos: **liberar a comunicação bloqueante**.
 
 ---
 
-## Programação Multitarefa (Thread)
+## 5. Processamento: Concorrente × Paralelo
 
-- Thread é um mini processo dentro de um processo.
-- Pode ser com memória compartilhada.
-  - Sincronismo
-    - Monitor
-    - Semáforo
-- Pode ser sem memória compartilhada.
+### Concorrente (Concomitante)
+- **1 CPU** alternando rapidamente entre tarefas.
+- Dá a **impressão** de simultaneidade.
 
-### Importância
+### Paralelo
+- Várias tarefas executadas **realmente ao mesmo tempo**, usando várias unidades de processamento.
 
-- Executar processos concomitantemente.
-- Em Sistemas Distribuídos, liberar comunicação bloqueante.
+**Divisão do paralelo:**
 
----
-
-# Processamento Concomitante × Processamento Paralelo
-
-## Processamento Concomitante (Concorrente)
-
-- Um Sistema Operacional gerencia várias tarefas.
-- Normalmente utiliza apenas uma CPU.
-- Alterna rapidamente entre as tarefas.
-- Dá a impressão de que tudo acontece ao mesmo tempo.
-
-**Palavra-chave:** Alternância.
-
-**Exemplo:** ouvir música enquanto navega na internet.
+| | Fortemente acoplado | Fracamente acoplado |
+|---|---|---|
+| Máquina | **Mesmo** computador | **Vários** computadores em rede |
+| Memória | Compartilhada | Cada um tem a sua |
+| Exemplo | CPU Multicore, GPU | Cluster computacional |
 
 ---
 
-## Processamento Paralelo
-
-- Várias tarefas são executadas simultaneamente.
-- Utiliza várias unidades de processamento.
-
-### Fortemente acoplado
-
-- Mesmo computador.
-- Compartilha memória.
-
-**Exemplos**
-- CPU Multicore
-- GPU
-
-**Palavra-chave:** Mesmo computador.
-
-### Fracamente acoplado
-
-- Vários computadores conectados em rede.
-- Cada computador possui CPU e memória próprias.
-
-**Exemplo**
-- Cluster computacional.
-
-**Palavra-chave:** Vários computadores.
-
----
-
-## Resumo
-
-- **Concomitante** = Sistema Operacional + alternância de tarefas + CPU.
-- **Paralelo** = execução simultânea.
-- **Fortemente acoplado** = CPU Multicore + GPU.
-- **Fracamente acoplado** = Cluster computacional.
-
----
-
-# Diferença entre Processo e Thread
-
-## Processo
-
-- Instância independente de um programa em execução.
-- Possui espaço de memória próprio.
-- Possui recursos próprios.
-- Comunicação entre processos (IPC) é mais complexa.
-- Se um processo falhar, normalmente não afeta os demais.
-
-### Exemplo
-
-Um servidor web pode executar vários processos para atender clientes simultaneamente.
-
----
-
-## Thread
-
-- Unidade de execução dentro de um processo.
-- Compartilha memória e recursos do processo.
-- Comunicação entre threads é rápida.
-- Se uma thread falhar, pode comprometer todo o processo.
-
-### Exemplo
-
-Um servidor web pode utilizar várias threads para atender diversas requisições simultaneamente.
-
----
-
-## Comparativo
+## 6. Processo × Thread
 
 | Característica | Processo | Thread |
-|---------------|-----------|---------|
+|----------------|----------|--------|
 | Isolamento | Sim | Não |
-| Comunicação | IPC | Compartilhamento direto |
+| Memória | Própria | Compartilhada com o processo |
+| Comunicação | IPC (mais complexa) | Direta (rápida) |
 | Custo de criação | Alto | Baixo |
-| Robustez | Maior | Menor |
+| Robustez | Maior (falha isolada) | Menor (falha derruba o processo) |
 | Uso comum | Isolar aplicações | Paralelizar tarefas |
 
+### Exemplo prático (servidor web)
+- **Com processos:** vários processos independentes atendendo clientes.
+- **Com threads:** um processo com várias threads atendendo requisições.
+
+### Em Sistemas Distribuídos
+- **Processos** → podem estar em **máquinas diferentes**.
+- **Threads** → vivem **dentro de um processo**, aproveitando a máquina local.
+
 ---
-
-## Em Sistemas Distribuídos
-
-- **Processos** podem estar em máquinas diferentes, executando partes da aplicação.
-- **Threads** normalmente são utilizadas dentro de um processo para aproveitar melhor os recursos da máquina local.
