@@ -1,0 +1,3 @@
+Desenvolver um código orientado a objetos que:
+    a) Leia o arquivo numeros1.txt (com 10 numeros, um abaixo do outro) e popule seus numeros em uma lista de inteiros
+    b) Leia o arquivo numeros2.txt (com 10 numeros, um abaixo do outro) e popule seus numeros na mesma lista de inteiros da anterior
