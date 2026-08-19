@@ -189,3 +189,19 @@ As principais informações são:
 | **Java** | `Thread.currentThread()` | `.getName()` | `.getId()` |
 | **C#** | `Thread.CurrentThread` | `.Name` | `.ManagedThreadId` |
 | **Python** | `threading.current_thread()` | `.name` | `threading.get_ident()` |
+
+
+## Aula 4
+
+Trabalho avaliativo sobre **Threads, memória compartilhada e não compartilhada e Arquitetura MVC**.
+
+A atividade aborda:
+
+* **Concorrência e comunicação entre Threads**
+* **Memória compartilhada e não compartilhada**
+* **Sincronização e `join()`**
+* **Separação de responsabilidades no MVC**
+* Organização entre **Model, View e Controller**
+
+O objetivo é aplicar esses conceitos em uma aplicação **organizada, modular e de fácil manutenção**.
+
