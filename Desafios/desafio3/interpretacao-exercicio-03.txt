@@ -1,0 +1,8 @@
+fazer um codigo (em java, c ou python) que:
+a - leia o arquivo numeros.txt(com 10 numeros, um abaixo do outro) e popule seu numeros numa lista de inteiros
+b - leia o arquivo nomes.txt(com 15 nomes, um abaixo do outro) e popule seu nomes numa lista de string
+c - exiba as listas respectivas
+
+Observacao:
+  -  Implemnte therads para as operacoes de ler/popular arquivo (fique atento se nao seria necessario 2 metodos)
+  - implemente therads para as operacoes de exibir listas
