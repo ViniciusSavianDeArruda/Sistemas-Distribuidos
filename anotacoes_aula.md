@@ -205,3 +205,26 @@ A atividade aborda:
 
 O objetivo é aplicar esses conceitos em uma aplicação **organizada, modular e de fácil manutenção**.
 
+
+# Aula 5 — 26/08/2026
+
+## Solução dos desafios da última aula
+
+* **A — Threads nomeadas**
+* **B — Lista de Threads**
+* **C — Pool de Threads**
+
+## Pool de Threads
+
+Foi abordado o uso de **Pool de Threads sem memória compartilhada**, utilizando listas como exemplo.
+
+* Cada tarefa trabalha com sua própria lista.
+* As listas recebem valores aleatórios e são ordenadas.
+* O pool controla a quantidade de threads executadas simultaneamente.
+
+**Java:** `ExecutorService` e `FixedThreadPool`
+**Python:** `ThreadPoolExecutor`
+
+ **Para muitas tarefas, o Pool de Threads permite melhor controle e gerenciamento dos recursos.**
+
+
