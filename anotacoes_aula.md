@@ -2,229 +2,310 @@
 
 > **Professor:** Alexandre Zamberlan — `Alexz@ufn.edu.br`
 
----
-
 ## Informações da disciplina
 
-**Estrutura dos projetos em código:**
-- `Controller`
-- `Model`
-- `Service`
-- `Communication`
+**Estrutura dos projetos:**
+
+* `Controller`
+* `Model`
+* `Service`
+* `Communication`
 
 **Avaliação:**
-- 20% — Participação
-- 20% — Notas de aula no GitHub (`notas_aula.md`)
-- 60% — Provas e trabalhos práticos
+
+* 20% — Participação
+* 20% — Notas de aula no GitHub
+* 60% — Provas e trabalhos práticos
 
 ---
 
 ## 1. O que são Sistemas Distribuídos?
 
-São sistemas em que várias máquinas trabalham juntas trocando informações pela rede.
-Para funcionar bem, precisamos entender **4 pilares**:
+Conjunto de **computadores independentes** que trabalham juntos através de uma rede, apresentando-se como um **sistema único**.
 
-1. Comunicação
-2. Arquitetura
-3. Processamento (concorrente × paralelo)
-4. Cluster × Grid
+**Objetivos:**
+
+* Transparência
+* Confiabilidade
+* Escalabilidade
+* Compartilhamento de recursos
+
+**Exemplos:** Netflix, Google Drive, WhatsApp, Blockchain.
 
 ---
 
 ## 2. Comunicação
 
-### Tipos
-| Tipo | Para quem envia |
-|------|-----------------|
-| **Unicast** | Um destinatário |
-| **Multicast** | Um grupo |
-| **Broadcast** | Todos |
+| Tipo          | Para quem envia |
+| ------------- | --------------- |
+| **Unicast**   | Um destinatário |
+| **Multicast** | Um grupo        |
+| **Broadcast** | Todos           |
 
-### Comunicação bloqueante
-- **Writer / Sender** → escreve/envia
-- **Reader / Receiver** → lê/recebe
+### Síncrona × Assíncrona
+
+* **Síncrona:** envia e espera resposta → bloqueante.
+* **Assíncrona:** envia e continua execução → não bloqueante.
 
 ### Conceitos de rede
-- **Modelo TCP/IP:** Aplicação → Transporte → Interface → Rede
-- **Socket:** ponto de conexão entre duas máquinas
-- **Porta lógica:** identifica o serviço dentro da máquina
-- **Máscara/classe de rede:** define o domínio
+
+* **Socket:** ponto de comunicação entre aplicações.
+* **Porta:** identifica o serviço/aplicação.
+* **TCP/IP:** conjunto de protocolos para comunicação em rede.
 
 ---
 
 ## 3. Arquitetura
 
-- **Cliente-Servidor:** um serve, outros consomem.
-- **Ponto a Ponto (P2P):** todos são iguais, podem servir e consumir.
+* **Cliente-Servidor:** servidor atende vários clientes. Ex: Gmail.
+* **P2P:** nós podem atuar como cliente e servidor. Ex: BitTorrent.
 
 ---
 
-## 4. Threads
+# Aula 2 — Threads e Processos
 
-### O que é?
-Uma **thread** é um mini processo dentro de um processo, usado para executar tarefas **ao mesmo tempo**.
+## 1. Threads
 
-### Estados de uma thread
-`Execução` · `Pronto/Finalizado` · `Espera` · `Parado` · `Dormindo` · `Cancelado`
-
-### Compartilhamento de memória
-
-| | Com compartilhamento | Sem compartilhamento |
-|---|---|---|
-| Memória | Compartilhada | Isolada |
-| Sincronismo | Necessário (responsabilidade do programador) | Não precisa |
-| Complexidade | Alta | Baixa |
-| Em Java | Interface `Runnable` | Classe `Thread` |
-
-### Sincronismo (quando há memória compartilhada)
-Ferramentas: **Monitor** e **Semáforo**.
-
-### Por que usar threads?
-- Executar tarefas **concomitantemente**.
-- Em Sistemas Distribuídos: **liberar a comunicação bloqueante**.
-
----
-
-## 5. Processamento: Concorrente × Paralelo
-
-### Concorrente (Concomitante)
-- **1 CPU** alternando rapidamente entre tarefas.
-- Dá a **impressão** de simultaneidade.
-
-### Paralelo
-- Várias tarefas executadas **realmente ao mesmo tempo**, usando várias unidades de processamento.
-
-**Divisão do paralelo:**
-
-| | Fortemente acoplado | Fracamente acoplado |
-|---|---|---|
-| Máquina | **Mesmo** computador | **Vários** computadores em rede |
-| Memória | Compartilhada | Cada um tem a sua |
-| Exemplo | CPU Multicore, GPU | Cluster computacional |
-
----
-
-## 6. Processo × Thread
-
-| Característica | Processo | Thread |
-|----------------|----------|--------|
-| Isolamento | Sim | Não |
-| Memória | Própria | Compartilhada com o processo |
-| Comunicação | IPC (mais complexa) | Direta (rápida) |
-| Custo de criação | Alto | Baixo |
-| Robustez | Maior (falha isolada) | Menor (falha derruba o processo) |
-| Uso comum | Isolar aplicações | Paralelizar tarefas |
-
-### Exemplo prático (servidor web)
-- **Com processos:** vários processos independentes atendendo clientes.
-- **Com threads:** um processo com várias threads atendendo requisições.
-
-### Em Sistemas Distribuídos
-- **Processos** → podem estar em **máquinas diferentes**.
-- **Threads** → vivem **dentro de um processo**, aproveitando a máquina local.
-
----
-
-# Aula 2 — Sistemas Distribuídos
-
-## Para que usar Sistemas Distribuídos?
-
-- Para compartilhar recursos, sejam eles de alta ou de baixa complexidade.
-
-## Como Sistemas Distribuídos operam?
-
-- Através de comunicação de dados (troca de **bytes**).
-
----
-
-## Threads
-
-### O que são?
-
-- Mini processos dentro de processos, criados para realizar tarefas ou rotinas de forma **concomitante**.
-- Existem apenas em Sistemas Distribuídos.
+Uma **thread** é uma unidade de execução dentro de um processo, utilizada para executar tarefas de forma concorrente/concomitante.
 
 ### Para que servem?
 
-- Circundam rotinas ou tarefas para que essas possam ser executadas de forma concomitante.
+* Executar tarefas concorrentemente.
+* Tratamento e análise de dados.
+* Processamento de várias tarefas.
 
-### Em quais tarefas as threads são mais adequadas?
-
-- Mineração
-- Tratamento de dados
-- Análise de dados
-- Rotinas que não possuam seção crítica
-
-### Tipos de threads
-
-- **Sem memória compartilhada:** não possuem seção crítica e são mais simples de gerenciar.
-- **Com memória compartilhada:** possuem seção crítica, necessitam de sincronização e são mais complexas, pois podem ocorrer conflitos no acesso aos dados.
+> Threads não são exclusivas de Sistemas Distribuídos.
 
 ---
 
-## Processo aula2
+## 2. Memória compartilhada
 
-Um processo pode criar threads de diferentes formas:
+### Com memória compartilhada
 
-- **Thread (classe):** geralmente associada a exemplos **sem** memória compartilhada.
-- **Runnable (interface):** geralmente utilizada quando há memória compartilhada entre as threads.
+* Threads acessam os mesmos dados.
+* Pode ocorrer conflito/condição de corrida.
+* Pode existir **seção crítica**.
+* Necessita de sincronização.
 
+### Sem memória compartilhada
 
-# Aula 3
+* Dados não são compartilhados diretamente.
+* Comunicação pode ser feita por **mensagens**.
+* Menor risco de conflito em dados compartilhados.
 
-# Threads e suas identificações
+---
 
-Uma **thread** pode ser identificada e monitorada mesmo sem compartilhar memória.
+## 3. Sincronização
 
-As principais informações são:
+Utilizada para controlar o acesso concorrente a recursos compartilhados.
 
-- **ID:** número único da thread dentro do processo.
-- **Nome:** facilita a identificação da thread.
-- **Thread atual:** permite saber qual thread está executando naquele momento.
+**Exemplos:**
 
-## Identificação por linguagem
+* Monitor
+* Semáforo
 
-| Linguagem | Thread atual | Nome | ID |
-|---|---|---|---|
-| **Java** | `Thread.currentThread()` | `.getName()` | `.getId()` |
-| **C#** | `Thread.CurrentThread` | `.Name` | `.ManagedThreadId` |
-| **Python** | `threading.current_thread()` | `.name` | `threading.get_ident()` |
+### Seção crítica
 
+Parte do código que acessa um recurso compartilhado e precisa ser protegida.
 
-## Aula 4
+---
 
-Trabalho avaliativo sobre **Threads, memória compartilhada e não compartilhada e Arquitetura MVC**.
+## 4. Processo × Thread
 
-A atividade aborda:
+| Processo                  | Thread                          |
+| ------------------------- | ------------------------------- |
+| Maior isolamento          | Menor isolamento                |
+| Memória própria           | Compartilha memória do processo |
+| Mais pesado               | Mais leve                       |
+| Comunicação mais complexa | Comunicação mais simples        |
 
-* **Concorrência e comunicação entre Threads**
-* **Memória compartilhada e não compartilhada**
-* **Sincronização e `join()`**
-* **Separação de responsabilidades no MVC**
-* Organização entre **Model, View e Controller**
+---
 
-O objetivo é aplicar esses conceitos em uma aplicação **organizada, modular e de fácil manutenção**.
+# Aula 3 — Identificação de Threads
 
+Uma thread pode ser identificada por:
 
-# Aula 5 — 26/08/2026
+* **ID**
+* **Nome**
+* **Thread atual**
 
-## Solução dos desafios da última aula
+### Java
 
-* **A — Threads nomeadas**
-* **B — Lista de Threads**
-* **C — Pool de Threads**
+```java
+Thread.currentThread()
+```
+
+* Nome: `.getName()`
+* ID: `.getId()`
+
+### C#
+
+```csharp
+Thread.CurrentThread
+```
+
+* Nome: `.Name`
+* ID: `.ManagedThreadId`
+
+### Python
+
+```python
+threading.current_thread()
+```
+
+* Nome: `.name`
+* ID: `threading.get_ident()`
+
+---
+
+# Aula 4 — Threads, MVC e Sincronização
+
+Trabalho avaliativo sobre:
+
+* Threads
+* Memória compartilhada e não compartilhada
+* Concorrência
+* Sincronização
+* `join()`
+* MVC
+
+### `join()`
+
+Faz uma thread esperar outra terminar.
+
+```java
+thread.join();
+```
+
+### MVC
+
+* **Model:** dados/regras.
+* **View:** interface.
+* **Controller:** recebe ações e coordena o sistema.
+
+Objetivo: **separar responsabilidades e organizar o código.**
+
+---
+
+# Aula 5 — Pool de Threads
 
 ## Pool de Threads
 
-Foi abordado o uso de **Pool de Threads sem memória compartilhada**, utilizando listas como exemplo.
+Conjunto de threads utilizado para executar várias tarefas de forma controlada.
 
-* Cada tarefa trabalha com sua própria lista.
-* As listas recebem valores aleatórios e são ordenadas.
-* O pool controla a quantidade de threads executadas simultaneamente.
+### Vantagens
 
-**Java:** `ExecutorService` e `FixedThreadPool`
-**Python:** `ThreadPoolExecutor`
+* Controla a quantidade de threads.
+* Evita criação excessiva.
+* Reutiliza threads.
+* Melhora o gerenciamento dos recursos.
 
- **Para muitas tarefas, o Pool de Threads permite melhor controle e gerenciamento dos recursos.**
+### Java
 
+* `ExecutorService`
+* `FixedThreadPool`
 
+### Python
+
+* `ThreadPoolExecutor`
+
+---
+
+# Conteúdo adicional 
+
+## 1. Concorrência × Paralelismo
+
+### Concorrência
+
+Tarefas progridem de forma **intercalada**.
+
+### Paralelismo
+
+Tarefas são executadas **realmente ao mesmo tempo**, utilizando múltiplas unidades de processamento.
+
+> **Concorrência = intercalado**
+> **Paralelismo = simultâneo**
+
+---
+
+## 2. Relógios Físicos × Lógicos
+
+### Relógio físico
+
+* Baseado no **tempo real**.
+* Busca sincronizar os relógios das máquinas.
+* Exemplo: **NTP**.
+
+### Relógio lógico
+
+* Não representa a hora real.
+* Determina a **ordem dos eventos**.
+* Exemplo: **Lamport**.
+
+> **Físico = que horas são?**
+> **Lógico = qual evento aconteceu primeiro?**
+
+---
+
+## 3. Lamport
+
+Cada processo possui um **contador lógico**.
+
+* Evento local → incrementa contador.
+* Envio → incrementa e envia o contador.
+* Recebimento → `max(local, recebido) + 1`.
+
+**Objetivo:** determinar a **ordem causal dos eventos**.
+
+---
+
+## 4. Exclusão Mútua
+
+Garante que **apenas um processo/thread por vez** acesse uma seção crítica ou recurso compartilhado.
+
+**Objetivo:** evitar conflitos no acesso aos recursos.
+
+```text
+P1 → entra → usa → sai
+P2 → entra → usa → sai
+```
+
+---
+
+## 5. Eleição
+
+Processo utilizado para escolher um **coordenador/líder** entre os processos.
+
+Se o coordenador falhar:
+
+```text
+Coordenador → ❌
+       ↓
+Eleição
+       ↓
+Novo coordenador
+```
+
+**Objetivo:** escolher um novo processo para coordenar o sistema.
+
+---
+
+## 6. Falhas
+
+* **Comunicação:** perda de pacotes/conexão.
+* **Processo:** servidor/processo para de funcionar.
+* **Hardware:** falha física, energia, disco etc.
+
+---
+
+## 7. Escalabilidade
+
+Capacidade de suportar o crescimento de usuários, dados ou processos.
+
+**Técnicas:**
+
+* Replicação
+* Balanceamento de carga
+* Particionamento de dados
+
+---
