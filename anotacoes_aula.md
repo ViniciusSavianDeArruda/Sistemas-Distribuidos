@@ -25,10 +25,10 @@ Conjunto de **computadores independentes** que trabalham juntos através de uma 
 
 **Objetivos:**
 
-* Transparência
-* Confiabilidade
-* Escalabilidade
-* Compartilhamento de recursos
+* Transparência --> **Usuário não precisa saber como/onde funciona**
+* Confiabilidade --> **Sistema continua funcionando mesmo com falhas**
+* Escalabilidade --> **Sistema consegue crescer**
+* Compartilhamento de recursos --> **Vários usuários/processos utilizam recursos**
 
 **Exemplos:** Netflix, Google Drive, WhatsApp, Blockchain.
 
@@ -45,7 +45,7 @@ Conjunto de **computadores independentes** que trabalham juntos através de uma 
 ### Síncrona × Assíncrona
 
 * **Síncrona:** envia e espera resposta → bloqueante.
-* **Assíncrona:** envia e continua execução → não bloqueante.
+* **Assíncrona:** envia e continua execução das terefas → não bloqueante.
 
 ### Conceitos de rede
 
