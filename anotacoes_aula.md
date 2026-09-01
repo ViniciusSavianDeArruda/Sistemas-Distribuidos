@@ -9,7 +9,7 @@
 * `Controller`
 * `Model`
 * `Service`
-* `Communication`
+* `Communication` --> Quando usar Socket
 
 **Avaliação:**
 
@@ -64,30 +64,53 @@ Conjunto de **computadores independentes** que trabalham juntos através de uma 
 
 # Aula 2 — Threads e Processos
 
-## 1. Threads
+## 1. Processo
 
-Uma **thread** é uma unidade de execução dentro de um processo, utilizada para executar tarefas de forma concorrente/concomitante.
+Um **processo** é um programa em execução, com seu próprio espaço de memória.
 
-### Para que servem?
-
-* Executar tarefas concorrentemente.
-* Tratamento e análise de dados.
-* Processamento de várias tarefas.
-
-> Threads não são exclusivas de Sistemas Distribuídos.
+* Possui memória própria/isolada.
+* É mais pesado para criar e gerenciar.
+* Processos diferentes precisam de mecanismos de comunicação para trocar dados.
 
 ---
 
-## 2. Memória compartilhada
+## 2. Threads
 
-### Com memória compartilhada
+Uma **thread** é uma unidade de execução dentro de um processo.
+
+* Executa tarefas de forma concorrente/concomitante.
+* É mais leve que um processo.
+* Threads do mesmo processo podem compartilhar memória.
+* Não são exclusivas de Sistemas Distribuídos.
+
+---
+
+## 3. Processo × Thread
+
+| Processo | Thread |
+|---|---|
+| Programa em execução | Unidade de execução dentro do processo |
+| Memória própria | Compartilha memória do processo |
+| Mais pesado | Mais leve |
+| Maior isolamento | Menor isolamento |
+| Comunicação mais complexa | Comunicação mais simples |
+
+---
+
+## 4. Memória compartilhada
+
+### Com memória compartilhad
+
+É quando duas ou mais threads/processos podem acessar os mesmos dados na memória.
 
 * Threads acessam os mesmos dados.
-* Pode ocorrer conflito/condição de corrida.
+* Pode ocorrer **condição de corrida**.
 * Pode existir **seção crítica**.
 * Necessita de sincronização.
 
 ### Sem memória compartilhada
+
+É quando cada processo/thread trabalha com dados separados, sem acessar diretamente a memória do outro.
 
 * Dados não são compartilhados diretamente.
 * Comunicação pode ser feita por **mensagens**.
@@ -95,29 +118,45 @@ Uma **thread** é uma unidade de execução dentro de um processo, utilizada par
 
 ---
 
-## 3. Sincronização
+## 5. Sincronização
 
 Utilizada para controlar o acesso concorrente a recursos compartilhados.
 
 **Exemplos:**
-
-* Monitor = 
-* Semáforo
+* **Monitor** = controla o acesso a uma seção crítica.
+* **Semáforo** = controla o acesso a recursos através de permissões/contadores.
 
 ### Seção crítica
 
-Parte do código que acessa um recurso compartilhado e precisa ser protegida por monitor ou semafo.
+Parte do código que acessa um **recurso compartilhado** e precisa ser protegida.
 
 ---
 
-## 4. Processo × Thread
+## 6. Condição de corrida
 
-| Processo                  | Thread                          |
-| ------------------------- | ------------------------------- |
-| Maior isolamento          | Menor isolamento                |
-| Memória própria           | Compartilha memória do processo |
-| Mais pesado               | Mais leve                       |
-| Comunicação mais complexa | Comunicação mais simples        |
+Acontece quando duas ou mais threads acessam/modificam o mesmo recurso ao mesmo tempo, podendo gerar um resultado incorreto ou inesperado.
+
+---
+
+## 7. Deadlock
+
+Acontece quando duas ou mais threads/processos ficam **esperando uns pelos outros** e nenhum consegue continuar.
+
+Exemplo:
+
+* Thread A → espera recurso B
+* Thread B → espera recurso A
+
+---
+## Dicas
+
+**Processo = programa em execução**  
+**Thread = unidade de execução dentro do processo**  
+**Memória compartilhada = mesmos dados**  
+**Seção crítica = trecho que acessa recurso compartilhado**  
+**Semáforo/Monitor = sincronização**  
+**Condição de corrida = conflito**  
+**Deadlock = travamento por espera**
 
 ---
 
