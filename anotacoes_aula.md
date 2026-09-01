@@ -101,12 +101,12 @@ Utilizada para controlar o acesso concorrente a recursos compartilhados.
 
 **Exemplos:**
 
-* Monitor
+* Monitor = 
 * Semáforo
 
 ### Seção crítica
 
-Parte do código que acessa um recurso compartilhado e precisa ser protegida.
+Parte do código que acessa um recurso compartilhado e precisa ser protegida por monitor ou semafo.
 
 ---
 
