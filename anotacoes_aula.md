@@ -389,3 +389,236 @@ Novo coordenador
 - **Eleição** = líder  
 - **Escalabilidade** = crescer  
 - **Tolerância a falhas** = resistir a falhas  
+
+---
+
+
+## Aula 6 — Comunicação entre Máquinas
+
+## 1. Comunicação entre máquinas
+
+É um dos principais focos de **Sistemas Distribuídos**.
+
+Permite que diferentes máquinas troquem informações e compartilhem recursos.
+
+### Compartilhamento de recursos
+
+- Memória
+- Processador (CPU)
+- GPU
+
+---
+
+## 2. Modelo TCP/IP
+
+Modelo utilizado para organizar o funcionamento da comunicação em redes de computadores.
+
+### Camadas
+
+- **Enlace**
+- **Rede**
+- **Transporte** 
+- **Sessão**
+- **Apresentação**
+- **Aplicação**
+- **Middleware**
+
+> **Foco da aula:** camada de **Transporte**.
+
+### Pacote
+
+Um pacote contém, de forma simplificada:
+
+- **Remetente** → quem envia
+- **Destinatário** → quem recebe
+- **Conteúdo** → informação enviada
+
+### Endereçamento
+
+- **IP** → identifica a máquina na rede.
+- **Porta lógica** → identifica o serviço/aplicação.
+- **Cliente** → solicita um serviço.
+- **Servidor** → fornece um serviço.
+
+---
+
+## 3. Middleware
+
+Camada que facilita o desenvolvimento de aplicações distribuídas.
+
+Fornece **APIs e abstrações** para facilitar a comunicação entre sistemas.
+
+> O middleware facilita a programação, evitando que o programador precise implementar toda a comunicação de baixo nível.
+
+---
+
+## 4. Formas de Comunicação
+
+### Comunicação orientada a mensagem
+
+A comunicação ocorre através do **envio e recebimento de mensagens**.
+
+- **Socket** → permite a comunicação entre aplicações.
+- O programador pode controlar explicitamente conexão, envio e recebimento.
+
+### Chamada de Procedimento Remoto (RPC)
+
+Permite executar um procedimento que está em **outra máquina**, como se fosse uma chamada local.
+
+### Exemplos
+
+- **RPC** → Python
+- **RMI** → Java
+- **SOAP** → XML
+
+---
+
+## 5. Serialização
+
+**Serialização** é transformar um **objeto em dados/bytes** para que ele possa ser enviado pela rede ou armazenado.
+
+```text
+Objeto
+   ↓
+Serialização
+   ↓
+Dados/Bytes
+   ↓
+Rede
+   ↓
+Dados/Bytes
+   ↓
+Desserialização
+   ↓
+Objeto
+
+Desserialização
+É o processo contrário da serialização.
+
+Transforma os dados/bytes recebidos novamente em um objeto.
+
+Serialização × Desserialização
+Serialização	Desserialização
+Objeto → dados/bytes	Dados/bytes → objeto
+Prepara para enviar	Reconstrói o objeto
+Antes do envio	Depois do recebimento
+
+Para decorar
+Serializar = empacotar o objeto para enviar.
+
+Desserializar = desempacotar e reconstruir o objeto.
+
+6. Tipos de Comunicação
+A comunicação pode ser classificada quanto ao:
+
+Sincronismo
+Persistência
+6.1 Quanto ao Sincronismo
+Síncrona
+O remetente espera uma resposta do destinatário.
+
+Bloqueante
+Possui retorno/resposta
+Geralmente associada ao TCP
+Pode utilizar buffer
+Cliente → requisição → Servidor
+Cliente ← resposta ← Servidor
+
+Assíncrona
+O remetente não precisa esperar uma resposta para continuar sua execução.
+
+Não bloqueante
+Geralmente associada ao UDP
+Útil para áudio, vídeo e streaming
+Cliente → mensagem → Servidor
+         ↓
+   continua execução
+
+Síncrona × Assíncrona
+Síncrona	Assíncrona
+Espera resposta	Não espera resposta
+Bloqueante	Não bloqueante
+TCP	UDP
+Possui retorno	Não espera retorno imediato
+
+6.2 Quanto à Persistência
+Transiente
+A mensagem só é enviada se o destinatário estiver disponível/online.
+
+Remetente → Mensagem → Destinatário
+                         online
+
+Se o destinatário não estiver disponível, a mensagem pode ser perdida.
+
+Persistente
+A mensagem pode ser enviada mesmo que o destinatário esteja offline.
+
+Cliente → Servidor
+             ↓
+      mensagem armazenada
+             ↓
+      Destinatário conecta
+             ↓
+        recebe mensagem
+
+É comum em arquiteturas cliente-servidor.
+
+Transiente × Persistente
+Transiente	Persistente
+Destinatário precisa estar online	Destinatário pode estar offline
+Mensagem pode ser perdida	Mensagem pode ser armazenada
+Não depende de armazenamento intermediário	Pode utilizar armazenamento intermediário
+
+7. Sockets
+Socket é um ponto de comunicação utilizado para permitir a troca de dados entre aplicações.
+
+É baseado principalmente na arquitetura cliente-servidor.
+
+Características
+Surgiu na década de 1980.
+Atua principalmente na camada de Transporte.
+Pode utilizar TCP ou UDP.
+Permite comunicação explícita entre máquinas.
+8. Sockets em Java
+Em Java, o programador precisa controlar explicitamente vários aspectos da comunicação:
+
+Endereço IP
+Porta lógica
+Conexão
+Envio de dados
+Recebimento de dados
+Sincronização
+Threads
+Fechamento da conexão
+Principais métodos
+Método	Função
+bind()	Associa o socket a um IP + porta
+listen()	Coloca o socket aguardando conexões
+accept()	Aceita uma conexão de um cliente
+connect()	Inicia uma conexão com o servidor
+read() / INPUT	Lê/recebe dados
+write() / OUTPUT	Escreve/envia dados
+close()	Fecha a conexão
+
+9. Funcionamento do Socket
+Servidor
+Criar Socket
+     ↓
+   bind()
+     ↓
+  listen()
+     ↓
+  accept()
+     ↓
+read() / write()
+     ↓
+  close()
+
+Cliente
+Criar Socket
+     ↓
+ connect()
+     ↓
+write() / read()
+     ↓
+  close()
