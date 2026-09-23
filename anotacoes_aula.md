@@ -671,3 +671,29 @@ write() / read()
      ↓
   close()
 ```
+
+## Aula 7 — Sockets na Prática
+
+## 1. O que cada lado precisa ter?
+
+A comunicação via Socket (TCP) divide as tarefas entre o Servidor e o Cliente utilizando objetos específicos.
+
+### Lado do Servidor (Server)
+* **ServerSocket:** Contém o endereço IP e a porta de requisição. Ele serve para ficar ouvindo a rede e esperando os clientes chegarem.
+* **Socket do Cliente (criado no Servidor):** É criado assim que o servidor aceita a conexão. É o canal para falar com o cliente que entrou.
+    * **InputStream:** Canal de entrada (serve para o servidor LER o que o cliente mandou).
+    * **OutputStream:** Canal de saída (serve para o servidor ENVIAR a resposta para o cliente).
+
+### Lado do Cliente (Client)
+* **Socket (Apontamento):** É o socket criado no cliente que aponta para o IP e a porta do servidor para abrir a conexão.
+    * **OutputStream:** Canal de saída (serve para o cliente ENVIAR dados para o servidor).
+    * **InputStream:** Canal de entrada (serve para o cliente LER a resposta do servidor).
+
+---
+
+## 2. Resumo do Fluxo (Como eles conversam)
+
+1. O Servidor liga o `ServerSocket` e fica escutando a porta.
+2. O Cliente cria o `Socket` apontando para o IP e porta do servidor.
+3. O Servidor aceita a conexão e cria o `Socket do Cliente` local.
+4. Os dois trocam dados usando seus canais de `InputStream` (Ler) e `OutputStream` (Escrever).
