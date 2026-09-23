@@ -1,4 +1,3 @@
-package Threads.Java;
 
 class MinhaTarefa implements Runnable { //permite o uso de memória compartilhada
     int quantidade;

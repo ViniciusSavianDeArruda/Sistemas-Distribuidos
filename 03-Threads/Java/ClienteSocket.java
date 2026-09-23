@@ -1,4 +1,3 @@
-package Threads.Java;
 import java.io.*;
 import java.net.*;
 
