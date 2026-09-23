@@ -13,9 +13,9 @@
 
 ### Avaliação
 
-- **20%** — Participação  
-- **20%** — Notas de aula no GitHub  
-- **60%** — Provas e trabalhos práticos  
+- **20%** — Participação
+- **20%** — Notas de aula no GitHub
+- **60%** — Provas e trabalhos práticos
 
 ---
 
@@ -27,10 +27,10 @@ Conjunto de **computadores independentes** que trabalham juntos através de uma 
 
 ### Objetivos
 
-- **Transparência** → usuário não precisa saber como/onde funciona  
-- **Confiabilidade** → sistema continua funcionando mesmo com falhas  
-- **Escalabilidade** → sistema consegue crescer  
-- **Compartilhamento de recursos** → vários usuários/processos utilizam recursos  
+- **Transparência** → usuário não precisa saber como/onde funciona
+- **Confiabilidade** → sistema continua funcionando mesmo com falhas
+- **Escalabilidade** → sistema consegue crescer
+- **Compartilhamento de recursos** → vários usuários/processos utilizam recursos
 
 ### Exemplos
 
@@ -48,22 +48,22 @@ Netflix, Google Drive, WhatsApp, Blockchain.
 
 ### Síncrona × Assíncrona
 
-- **Síncrona:** envia e espera resposta (bloqueante).  
-- **Assíncrona:** envia e continua execução das tarefas (não bloqueante).  
+- **Síncrona:** envia e espera resposta (bloqueante).
+- **Assíncrona:** envia e continua execução das tarefas (não bloqueante).
 
 ### Conceitos de rede
 
-- **Socket:** ponto de comunicação entre aplicações.  
-- **Porta:** identifica o serviço/aplicação.  
-- **TCP/IP:** conjunto de protocolos para comunicação em rede.  
-- **Máscara de rede:** define a divisão entre rede e dispositivos.  
+- **Socket:** ponto de comunicação entre aplicações.
+- **Porta:** identifica o serviço/aplicação.
+- **TCP/IP:** conjunto de protocolos para comunicação em rede.
+- **Máscara de rede:** define a divisão entre rede e dispositivos.
 
 ---
 
 ## 3. Arquitetura
 
-- **Cliente-Servidor:** servidor atende vários clientes. Ex.: Gmail.  
-- **P2P:** nós podem atuar como cliente e servidor. Ex.: BitTorrent.  
+- **Cliente-Servidor:** servidor atende vários clientes. Ex.: Gmail.
+- **P2P:** nós podem atuar como cliente e servidor. Ex.: BitTorrent.
 
 ---
 
@@ -77,9 +77,9 @@ Utilizam múltiplos recursos de processamento para executar tarefas.
 
 ### Fortemente acoplados
 
-- Processadores/máquinas trabalham de forma próxima.  
-- Utilizam comunicação por rede e protocolos TCP/IP.  
-- Envolve endereço de rede, porta lógica, máscara e protocolos de transporte.  
+- Processadores/máquinas trabalham de forma próxima.
+- Utilizam comunicação por rede e protocolos TCP/IP.
+- Envolve endereço de rede, porta lógica, máscara e protocolos de transporte.
 
 ### Cluster
 
@@ -87,13 +87,13 @@ Conjunto de computadores trabalhando juntos para realizar processamento.
 
 ### Cluster × Grid
 
-- **Cluster:** computação paralela.  
-- **Grid:** computação distribuída/concomitante.  
+- **Cluster:** computação paralela.
+- **Grid:** computação distribuída/concomitante.
 
 ### Programação
 
-- **Concomitante:** Threads.  
-- **Paralela:** CUDA, OpenMP, MPI.  
+- **Concomitante:** Threads.
+- **Paralela:** CUDA, OpenMP, MPI.
 
 ---
 
@@ -103,9 +103,9 @@ Conjunto de computadores trabalhando juntos para realizar processamento.
 
 Um **processo** é um programa em execução, com seu próprio espaço de memória.
 
-- Possui memória própria/isolada.  
-- É mais pesado para criar e gerenciar.  
-- Processos diferentes precisam de mecanismos de comunicação para trocar dados.  
+- Possui memória própria/isolada.
+- É mais pesado para criar e gerenciar.
+- Processos diferentes precisam de mecanismos de comunicação para trocar dados.
 
 ---
 
@@ -113,11 +113,11 @@ Um **processo** é um programa em execução, com seu próprio espaço de memór
 
 Uma **thread** é uma unidade de execução dentro de um processo.
 
-- Executa tarefas de forma concorrente/concomitante.  
-- É mais leve que um processo.  
-- Threads do mesmo processo podem compartilhar memória.  
-- Não são exclusivas de Sistemas Distribuídos.  
-- Podem receber uma rotina e parâmetros.  
+- Executa tarefas de forma concorrente/concomitante.
+- É mais leve que um processo.
+- Threads do mesmo processo podem compartilhar memória.
+- Não são exclusivas de Sistemas Distribuídos.
+- Podem receber uma rotina e parâmetros.
 
 ---
 
@@ -139,18 +139,18 @@ Uma **thread** é uma unidade de execução dentro de um processo.
 
 É quando duas ou mais threads/processos podem acessar os mesmos dados na memória.
 
-- Threads acessam os mesmos dados.  
-- Pode ocorrer **condição de corrida**.  
-- Pode existir **seção crítica**.  
-- Necessita de sincronização.  
+- Threads acessam os mesmos dados.
+- Pode ocorrer **condição de corrida**.
+- Pode existir **seção crítica**.
+- Necessita de sincronização.
 
 ### Sem memória compartilhada
 
 É quando cada processo/thread trabalha com dados separados, sem acessar diretamente a memória do outro.
 
-- Dados não são compartilhados diretamente.  
-- Comunicação pode ser feita por **mensagens**.  
-- Menor risco de conflito em dados compartilhados.  
+- Dados não são compartilhados diretamente.
+- Comunicação pode ser feita por **mensagens**.
+- Menor risco de conflito em dados compartilhados.
 
 ---
 
@@ -160,8 +160,8 @@ Utilizada para controlar o acesso concorrente a recursos compartilhados.
 
 ### Exemplos
 
-- **Monitor:** controla o acesso a uma seção crítica.  
-- **Semáforo:** controla o acesso a recursos através de permissões/contadores.  
+- **Monitor:** controla o acesso a uma seção crítica.
+- **Semáforo:** controla o acesso a recursos através de permissões/contadores.
 
 ### Seção crítica
 
@@ -185,8 +185,8 @@ Acontece quando duas ou mais threads/processos ficam **esperando uns pelos outro
 
 Exemplo:
 
-- Thread A → espera recurso B  
-- Thread B → espera recurso A  
+- Thread A → espera recurso B
+- Thread B → espera recurso A
 
 ---
 
@@ -194,17 +194,17 @@ Exemplo:
 
 ### Relógio físico
 
-- Baseado no **tempo real**.  
-- Busca sincronizar os relógios das máquinas.  
-- Exemplo: **NTP**.  
+- Baseado no **tempo real**.
+- Busca sincronizar os relógios das máquinas.
+- Exemplo: **NTP**.
 
 ### Relógio lógico
 
-- Não representa a hora real.  
-- Determina a **ordem dos eventos**.  
-- Exemplo: **Lamport**.  
+- Não representa a hora real.
+- Determina a **ordem dos eventos**.
+- Exemplo: **Lamport**.
 
-> **Físico = que horas são?**  
+> **Físico = que horas são?**
 > **Lógico = qual evento aconteceu primeiro?**
 
 ---
@@ -213,9 +213,9 @@ Exemplo:
 
 Cada processo possui um **contador lógico**.
 
-- Evento local → incrementa contador.  
-- Envio → incrementa e envia o contador.  
-- Recebimento → `max(local, recebido) + 1`.  
+- Evento local → incrementa contador.
+- Envio → incrementa e envia o contador.
+- Recebimento → `max(local, recebido) + 1`.
 
 **Objetivo:** determinar a **ordem causal dos eventos**.
 
@@ -261,12 +261,12 @@ id_thread = threading.get_ident()
 
 Trabalho avaliativo sobre:
 
-- Threads  
-- Memória compartilhada e não compartilhada  
-- Concorrência  
-- Sincronização  
-- `join()`  
-- MVC  
+- Threads
+- Memória compartilhada e não compartilhada
+- Concorrência
+- Sincronização
+- `join()`
+- MVC
 
 ### join()
 
@@ -278,9 +278,9 @@ thread.join();
 
 ### MVC
 
-- **Model:** dados e regras de negócio.  
-- **View:** interface.  
-- **Controller:** recebe ações e coordena o sistema.  
+- **Model:** dados e regras de negócio.
+- **View:** interface.
+- **Controller:** recebe ações e coordena o sistema.
 
 **Objetivo:** separar responsabilidades e organizar o código.
 
@@ -294,10 +294,10 @@ Conjunto de threads utilizado para executar várias tarefas de forma controlada.
 
 ### Vantagens
 
-- Controla a quantidade de threads.  
-- Evita criação excessiva.  
-- Reutiliza threads.  
-- Melhora o gerenciamento dos recursos.  
+- Controla a quantidade de threads.
+- Evita criação excessiva.
+- Reutiliza threads.
+- Melhora o gerenciamento dos recursos.
 
 ### Java
 
@@ -318,9 +318,9 @@ Capacidade do sistema de continuar funcionando mesmo quando ocorre uma falha.
 
 ### Tipos de falha
 
-- **Comunicação:** perda de pacotes/conexão.  
-- **Processo:** servidor/processo para de funcionar.  
-- **Hardware:** falha física, energia, disco etc.  
+- **Comunicação:** perda de pacotes/conexão.
+- **Processo:** servidor/processo para de funcionar.
+- **Hardware:** falha física, energia, disco etc.
 
 ---
 
@@ -328,16 +328,16 @@ Capacidade do sistema de continuar funcionando mesmo quando ocorre uma falha.
 
 Capacidade de suportar o crescimento de:
 
-- Usuários  
-- Dados  
-- Processos  
-- Processamento  
+- Usuários
+- Dados
+- Processos
+- Processamento
 
 ### Técnicas
 
-- Replicação  
-- Balanceamento de carga  
-- Particionamento de dados  
+- Replicação
+- Balanceamento de carga
+- Particionamento de dados
 
 ---
 
@@ -373,27 +373,27 @@ Novo coordenador
 
 ## Dicas rápidas
 
-- **Processo** = programa em execução  
-- **Thread** = unidade de execução dentro do processo  
-- **Compartilhada** = mesmos dados  
-- **Seção crítica** = recurso compartilhado  
-- **Semáforo/Monitor** = sincronização  
-- **Corrida** = conflito  
-- **Deadlock** = travamento por espera  
-- **Síncrono** = espera  
-- **Assíncrono** = continua  
-- **Cluster** = paralelo  
-- **Grid** = distribuído  
-- **Físico** = tempo  
-- **Lamport** = ordem  
-- **Eleição** = líder  
-- **Escalabilidade** = crescer  
-- **Tolerância a falhas** = resistir a falhas  
+- **Processo** = programa em execução
+- **Thread** = unidade de execução dentro do processo
+- **Compartilhada** = mesmos dados
+- **Seção crítica** = recurso compartilhado
+- **Semáforo/Monitor** = sincronização
+- **Corrida** = conflito
+- **Deadlock** = travamento por espera
+- **Síncrono** = espera
+- **Assíncrono** = continua
+- **Cluster** = paralelo
+- **Grid** = distribuído
+- **Físico** = tempo
+- **Lamport** = ordem
+- **Eleição** = líder
+- **Escalabilidade** = crescer
+- **Tolerância a falhas** = resistir a falhas
 
 ---
 
 
-## Aula 6 — Comunicação entre Máquinas
+# Aula 6 — Comunicação entre Máquinas
 
 ## 1. Comunicação entre máquinas
 
@@ -417,7 +417,7 @@ Modelo utilizado para organizar o funcionamento da comunicação em redes de com
 
 - **Enlace**
 - **Rede**
-- **Transporte** 
+- **Transporte**
 - **Sessão**
 - **Apresentação**
 - **Aplicação**
@@ -491,117 +491,162 @@ Dados/Bytes
 Desserialização
    ↓
 Objeto
+```
 
-Desserialização
+### Desserialização
+
 É o processo contrário da serialização.
 
 Transforma os dados/bytes recebidos novamente em um objeto.
 
-Serialização × Desserialização
-Serialização	Desserialização
-Objeto → dados/bytes	Dados/bytes → objeto
-Prepara para enviar	Reconstrói o objeto
-Antes do envio	Depois do recebimento
+### Serialização × Desserialização
 
-Para decorar
-Serializar = empacotar o objeto para enviar.
+| Serialização | Desserialização |
+|---|---|
+| Objeto → dados/bytes | Dados/bytes → objeto |
+| Prepara para enviar | Reconstrói o objeto |
+| Antes do envio | Depois do recebimento |
 
-Desserializar = desempacotar e reconstruir o objeto.
+### Para decorar
 
-6. Tipos de Comunicação
+**Serializar** = empacotar o objeto para enviar.
+
+**Desserializar** = desempacotar e reconstruir o objeto.
+
+---
+
+## 6. Tipos de Comunicação
+
 A comunicação pode ser classificada quanto ao:
 
-Sincronismo
-Persistência
-6.1 Quanto ao Sincronismo
-Síncrona
+- Sincronismo
+- Persistência
+
+### 6.1 Quanto ao Sincronismo
+
+#### Síncrona
+
 O remetente espera uma resposta do destinatário.
 
-Bloqueante
-Possui retorno/resposta
-Geralmente associada ao TCP
-Pode utilizar buffer
-Cliente → requisição → Servidor
-Cliente ← resposta ← Servidor
+- Bloqueante
+- Possui retorno/resposta
+- Geralmente associada ao TCP
+- Pode utilizar buffer
 
-Assíncrona
+```text
+Cliente → requisição → Servidor
+Cliente ← resposta   ← Servidor
+```
+
+#### Assíncrona
+
 O remetente não precisa esperar uma resposta para continuar sua execução.
 
-Não bloqueante
-Geralmente associada ao UDP
-Útil para áudio, vídeo e streaming
+- Não bloqueante
+- Geralmente associada ao UDP
+- Útil para áudio, vídeo e streaming
+
+```text
 Cliente → mensagem → Servidor
-         ↓
-   continua execução
+    ↓
+continua execução
+```
 
-Síncrona × Assíncrona
-Síncrona	Assíncrona
-Espera resposta	Não espera resposta
-Bloqueante	Não bloqueante
-TCP	UDP
-Possui retorno	Não espera retorno imediato
+#### Síncrona × Assíncrona
 
-6.2 Quanto à Persistência
-Transiente
+| Síncrona | Assíncrona |
+|---|---|
+| Espera resposta | Não espera resposta |
+| Bloqueante | Não bloqueante |
+| TCP | UDP |
+| Possui retorno | Não espera retorno imediato |
+
+### 6.2 Quanto à Persistência
+
+#### Transiente
+
 A mensagem só é enviada se o destinatário estiver disponível/online.
 
+```text
 Remetente → Mensagem → Destinatário
-                         online
+                       online
+```
 
 Se o destinatário não estiver disponível, a mensagem pode ser perdida.
 
-Persistente
+#### Persistente
+
 A mensagem pode ser enviada mesmo que o destinatário esteja offline.
 
+```text
 Cliente → Servidor
              ↓
-      mensagem armazenada
+     mensagem armazenada
              ↓
-      Destinatário conecta
+     Destinatário conecta
              ↓
-        recebe mensagem
+       recebe mensagem
+```
 
 É comum em arquiteturas cliente-servidor.
 
-Transiente × Persistente
-Transiente	Persistente
-Destinatário precisa estar online	Destinatário pode estar offline
-Mensagem pode ser perdida	Mensagem pode ser armazenada
-Não depende de armazenamento intermediário	Pode utilizar armazenamento intermediário
+#### Transiente × Persistente
 
-7. Sockets
+| Transiente | Persistente |
+|---|---|
+| Destinatário precisa estar online | Destinatário pode estar offline |
+| Mensagem pode ser perdida | Mensagem pode ser armazenada |
+| Não depende de armazenamento intermediário | Pode utilizar armazenamento intermediário |
+
+---
+
+## 7. Sockets
+
 Socket é um ponto de comunicação utilizado para permitir a troca de dados entre aplicações.
 
 É baseado principalmente na arquitetura cliente-servidor.
 
-Características
-Surgiu na década de 1980.
-Atua principalmente na camada de Transporte.
-Pode utilizar TCP ou UDP.
-Permite comunicação explícita entre máquinas.
-8. Sockets em Java
+### Características
+
+- Surgiu na década de 1980.
+- Atua principalmente na camada de Transporte.
+- Pode utilizar TCP ou UDP.
+- Permite comunicação explícita entre máquinas.
+
+---
+
+## 8. Sockets em Java
+
 Em Java, o programador precisa controlar explicitamente vários aspectos da comunicação:
 
-Endereço IP
-Porta lógica
-Conexão
-Envio de dados
-Recebimento de dados
-Sincronização
-Threads
-Fechamento da conexão
-Principais métodos
-Método	Função
-bind()	Associa o socket a um IP + porta
-listen()	Coloca o socket aguardando conexões
-accept()	Aceita uma conexão de um cliente
-connect()	Inicia uma conexão com o servidor
-read() / INPUT	Lê/recebe dados
-write() / OUTPUT	Escreve/envia dados
-close()	Fecha a conexão
+- Endereço IP
+- Porta lógica
+- Conexão
+- Envio de dados
+- Recebimento de dados
+- Sincronização
+- Threads
+- Fechamento da conexão
 
-9. Funcionamento do Socket
-Servidor
+### Principais métodos
+
+| Método | Função |
+|---|---|
+| `bind()` | Associa o socket a um IP + porta |
+| `listen()` | Coloca o socket aguardando conexões |
+| `accept()` | Aceita uma conexão de um cliente |
+| `connect()` | Inicia uma conexão com o servidor |
+| `read()` / INPUT | Lê/recebe dados |
+| `write()` / OUTPUT | Escreve/envia dados |
+| `close()` | Fecha a conexão |
+
+---
+
+## 9. Funcionamento do Socket
+
+### Servidor
+
+```text
 Criar Socket
      ↓
    bind()
@@ -613,8 +658,11 @@ Criar Socket
 read() / write()
      ↓
   close()
+```
 
-Cliente
+### Cliente
+
+```text
 Criar Socket
      ↓
  connect()
@@ -622,3 +670,4 @@ Criar Socket
 write() / read()
      ↓
   close()
+```
