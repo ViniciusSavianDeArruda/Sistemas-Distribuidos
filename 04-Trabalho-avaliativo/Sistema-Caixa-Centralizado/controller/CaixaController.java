@@ -1,8 +1,7 @@
 package controller;
 
-import model.CaixaCentral;
 import view.CaixaView;
-
+import model.CaixaCentral;
 /**
  * Controller responsável por coordenar a execução das threads
  * que representam os caixas do evento.

@@ -1,4 +1,3 @@
-
 package model;
 /**
  * Model responsável pelo saldo centralizado do evento.
