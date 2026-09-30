@@ -26,7 +26,7 @@ public class Servidor {
     }
 
     private void criarServidor() {
-
+        
         try {
             servidor =new ServerSocket(1234);
 

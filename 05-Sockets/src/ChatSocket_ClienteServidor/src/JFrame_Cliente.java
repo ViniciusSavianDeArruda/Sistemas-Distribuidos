@@ -14,10 +14,6 @@ import javax.swing.JOptionPane;
  * and open the template in the editor.
  */
 
-/**
- *
- * @author alexandrezamberlan
- */
 public class JFrame_Cliente extends javax.swing.JFrame {
 
     /**
@@ -170,7 +166,7 @@ public class JFrame_Cliente extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
+
     private void enviar() {
         if (jTextField_mensagem.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this,"Antes de enviar, é preciso digitar!!");
@@ -181,17 +177,17 @@ public class JFrame_Cliente extends javax.swing.JFrame {
             jTextField_mensagem.setText("");
         }
     }
-    
+
     private void jButton_enviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_enviarActionPerformed
         enviar();
-        
+
     }//GEN-LAST:event_jButton_enviarActionPerformed
 
     private void jButton_conectarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_conectarActionPerformed
         if (jTextField_portaServidor.getText().isEmpty() || jTextField_enderecoServidor.getText().isEmpty() || jTextField_apelido.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Para conectar é preciso definir porta, endereço e apelido");
         } else {
-            
+
             try {
                 //cria um socket TCP para se conectar ao servidor de ip "localhost" porta 1234
                 cliente = new Socket(jTextField_enderecoServidor.getText(), Integer.parseInt(jTextField_portaServidor.getText()));
@@ -199,7 +195,7 @@ public class JFrame_Cliente extends javax.swing.JFrame {
                 jTextField_apelido.setEditable(false);
                 jTextField_enderecoServidor.setEditable(false);
                 jButton_conectar.setEnabled(false);
-                
+
                 jTextField_mensagem.setEditable(true);
                 jButton_enviar.setEnabled(true);
 
@@ -208,7 +204,7 @@ public class JFrame_Cliente extends javax.swing.JFrame {
                     public void run() {
                         Date dataAtual = new Date();
                         while (true) {
-                            jTextArea_mensagens.append("["+ dataAtual + "]: " + Comunicador.receberMensagem(cliente) + "\n");  
+                            jTextArea_mensagens.append("["+ dataAtual + "]: " + Comunicador.receberMensagem(cliente) + "\n");
                         }
                     }
                 }.start();
@@ -232,7 +228,7 @@ public class JFrame_Cliente extends javax.swing.JFrame {
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             enviar();
         }
-            
+
     }//GEN-LAST:event_jTextField_mensagemKeyPressed
 
     /**
@@ -242,7 +238,7 @@ public class JFrame_Cliente extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -269,7 +265,7 @@ public class JFrame_Cliente extends javax.swing.JFrame {
             }
         });
     }
-    
+
     Socket cliente;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

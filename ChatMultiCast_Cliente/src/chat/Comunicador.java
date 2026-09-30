@@ -7,6 +7,7 @@ import java.net.Socket;
 
 public class Comunicador {
 
+    // Recebe uma mensagem enviada pelo socket
     public static String recebeMensagem(Socket socket) {
         try {
             DataInputStream leitor =
@@ -19,6 +20,7 @@ public class Comunicador {
         }
     }
 
+    // Envia uma mensagem pelo socket
     public static void enviaMensagem(Socket socket, String mensagem) {
         try {
             DataOutputStream escritor =

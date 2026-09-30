@@ -697,3 +697,10 @@ A comunicação via Socket (TCP) divide as tarefas entre o Servidor e o Cliente 
 2. O Cliente cria o `Socket` apontando para o IP e porta do servidor.
 3. O Servidor aceita a conexão e cria o `Socket do Cliente` local.
 4. Os dois trocam dados usando seus canais de `InputStream` (Ler) e `OutputStream` (Escrever).
+
+---
+
+## Aula 7 - UPD - Trabalho Prático: Sistemas Distribuídos (Cliente-Servidor via UDP)
+
+
+
