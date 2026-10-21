@@ -700,7 +700,11 @@ A comunicação via Socket (TCP) divide as tarefas entre o Servidor e o Cliente 
 
 ---
 
-## Aula 7 - UPD - Trabalho Prático: Sistemas Distribuídos (Cliente-Servidor via UDP)
+## Aula 8 - UPD - Trabalho Prático: Sistemas Distribuídos (Cliente-Servidor via UDP)
 
+
+---
+
+## Aula 9 -
 
 
