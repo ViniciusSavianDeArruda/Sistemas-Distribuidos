@@ -705,6 +705,97 @@ A comunicação via Socket (TCP) divide as tarefas entre o Servidor e o Cliente 
 
 ---
 
-## Aula 9 -
+## Aula 9 - # RPC - Remote Procedure Call
+
+RPC é um protocolo de comunicação entre processos que permite que um programa execute uma função ou procedimento em outro programa, possivelmente em outro computador na rede, como se fosse uma chamada local. Ele abstrai a complexidade da comunicação entre sistemas distribuídos, permitindo que os desenvolvedores chamem funções remotas de maneira semelhante às chamadas de funções locais.
+
+## Características
+- Funciona como uma chamada de função local, mas executa o código em um servidor remoto.
+- Permite a comunicação entre diferentes linguagens de programação.
+- Pode ser usado para criar aplicações distribuídas e microserviços.
+- Oferece uma interface simples para o desenvolvimento de aplicações distribuídas.
+
+## Tipos de RPC
+- **Síncrono**: O cliente envia uma solicitação e espera pela resposta do servidor antes de continuar a execução.
+- **Assíncrono**: O cliente envia uma solicitação e continua a execução sem esperar pela resposta do servidor. A resposta é recebida posteriormente, geralmente através de um callback ou evento.
+- **Baseado em Mensagens**: O cliente envia uma mensagem para o servidor, que processa a solicitação e envia uma resposta de volta. A comunicação é feita através de mensagens, e não de chamadas de função diretas.
+- **Baseado em Streaming**: Permite a transmissão contínua de dados entre o cliente e o servidor, permitindo que ambos enviem e recebam dados em tempo real.
+- **Baseado em Eventos**: O cliente se inscreve em eventos no servidor e recebe notificações quando esses eventos ocorrem, permitindo uma comunicação reativa entre os sistemas.
+
+---
+
+# Aula 10 - RMI (Remote Method Invocation)
+
+## O que é RMI?
+
+**RMI (Remote Method Invocation)** é uma tecnologia do Java que permite executar métodos de objetos localizados em outro computador através de uma rede.
+
+É utilizada em **sistemas distribuídos**, permitindo que diferentes aplicações Java se comuniquem.
+
+## Como funciona?
+
+1. O servidor disponibiliza um objeto remoto.
+2. O objeto é registrado no **RMI Registry**.
+3. O cliente localiza o objeto remoto.
+4. O cliente invoca um método desse objeto.
+5. O servidor executa o método e retorna o resultado.
+
+## Principais componentes
+
+- **Remote:** interface que define os métodos disponíveis remotamente.
+- **RemoteException:** trata possíveis erros de comunicação.
+- **RMI Registry:** registra e permite localizar objetos remotos.
+- **Stub:** representante local do objeto remoto, responsável por encaminhar chamadas ao servidor.
+- **UnicastRemoteObject:** classe utilizada para exportar objetos remotos.
+
+## Vantagens
+
+- Facilita a comunicação entre aplicações Java.
+- Permite executar métodos remotamente.
+- Simplifica o desenvolvimento de sistemas distribuídos.
+- Possibilita compartilhar serviços entre computadores.
+
+## Desvantagens
+
+- Depende de conexão de rede.
+- Pode apresentar atrasos na comunicação.
+- Exige tratamento de falhas remotas.
+- É voltado principalmente para aplicações Java.
+
+## Resumo
+
+O **RMI** permite que um programa Java chame métodos de objetos que estão em outro computador, como se fossem locais. Ele facilita a comunicação entre aplicações distribuídas, utilizando interfaces remotas e um serviço de registro para localizar os objetos.
+
+
+## O que é JGroups?
+
+JGroups é uma biblioteca Java utilizada em sistemas distribuídos para permitir a comunicação entre várias aplicações ou servidores organizados em grupos (clusters).
+
+## Para que serve?
+
+- Enviar mensagens entre aplicações Java.
+- Criar grupos de comunicação (clusters).
+- Detectar quando um membro entra ou sai do grupo.
+- Facilitar a comunicação entre vários servidores.
+- Apoiar sistemas distribuídos e tolerantes a falhas.
+
+## Como funciona?
+
+1. Cada aplicação entra em um canal de comunicação.
+2. As aplicações conectadas ao mesmo grupo podem trocar mensagens.
+3. O JGroups gerencia a comunicação e informa mudanças nos membros do grupo.
+
+## Exemplo prático
+
+Em um sistema de chat distribuído, várias aplicações Java podem entrar no mesmo grupo e compartilhar mensagens. Quando uma aplicação envia uma mensagem, os outros membros podem recebê-la.
+
+## JGroups x RMI
+
+- **RMI:** permite chamar métodos de objetos Java remotamente.
+- **JGroups:** permite trocar mensagens e gerenciar grupos de aplicações distribuídas.
+
+## Resumo final
+
+JGroups facilita a comunicação entre aplicações Java em sistemas distribuídos, permitindo enviar mensagens, organizar clusters e detectar alterações nos membros do grupo.
 
 
